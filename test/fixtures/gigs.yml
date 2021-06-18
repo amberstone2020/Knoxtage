@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  artist_name: MyString
+  gig_genre: MyString
+  gig_venue: MyString
+  gig_when: 2021-03-12 10:50:45
+  gig_tickets: MyString
+  gig_comments: MyString
+
+two:
+  artist_name: MyString
+  gig_genre: MyString
+  gig_venue: MyString
+  gig_when: 2021-03-12 10:50:45
+  gig_tickets: MyString
+  gig_comments: MyString

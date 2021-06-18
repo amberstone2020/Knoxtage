@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+
+
+<html>
+<body>
+
+<div class="card">
+  <div class="card-header">
+  <h3>Search Results</h3>
+   </div>
+     <div class="card-body">
+<table class="table table-light table-border table-hover">
+  <!--<thead class="thead-secondary"> -->
+    <tr>
+    <thead class="thead-light">
+      <th>Artist</th>
+      <th>Genre</th>
+      <th>Venue</th>
+      <th>Date</th>
+      <th>Time</th>
+      <th>Tickets</th>
+      <th>Additional Comments</th>
+            <th colspan="4"></th>
+    </tr>
+  </thead>
+    </div>
+</div>
+
+  <tbody>
+    <% @gigs.each do |gig| %>
+   
+      <tr>
+        <td><%= gig.artist_name %></td>
+        <td><%= gig.gig_genre %></td>
+        <td><%= gig.gig_venue %></td>
+        <td><%= gig.gig_when.strftime("%m/%d/%Y") %></td>
+        <td><%= gig.gig_when.strftime("%-I:%M %p") %></td>
+        <td><%= link_to gig.gig_tickets, "http://#{gig.gig_tickets}", :target => "_blank" %></td>
+        <td><%= gig.gig_comments %></td>
+        <td><% link_to 'Show', gig %></td>
+        <td><% link_to 'Edit', edit_gig_path(gig) %></td>
+        <td><% link_to 'Destroy', gig, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+      
+    <% end %>
+  </tbody>
+</table>
+<br>
+<br/>
+    </div>
+</div>
+<br/>
+

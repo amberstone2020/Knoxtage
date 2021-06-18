@@ -1,0 +1,43 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style="padding-left:75px;margin-bottom:0px";>
+  <!--<a class="navbar-brand" href="#">KnoXtage</a>-->
+  <%= link_to 'KnoXtage', root_path, class:"navbar-brand"%>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+
+
+      <% if user_signed_in? %>
+            <li class="nav-item">
+        <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class:"nav-link" %>
+      </li>
+
+            <li class="nav-item">
+        <%= link_to 'Edit Account',edit_user_registration_path, class:"nav-link" %>
+      </li>
+
+            <li class="nav-item">
+        <%= link_to 'Profile',gigs_path, class:"nav-link" %>
+      </li>
+
+      <% else %>
+            <li class="nav-item">
+        <%= link_to 'Artist Sign Up', new_user_registration_path, class:"nav-link" %>
+      </li>
+
+            <li class="nav-item">
+        <%= link_to 'Artist Log In', new_user_session_path, class:"nav-link" %>
+      </li>
+      <% end %>
+    </ul>
+
+       <form class="form-inline my-2 my-lg-0" action="/search">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name= "q">
+      <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
+    </form> 
+
+
+  </div>
+</nav>

@@ -1,0 +1,50 @@
+<div class="card">
+  <div class="card-header">
+    <h3>Gig Details</h3>
+  </div>
+  <div class="card-body">
+    <blockquote class="blockquote mb-0">
+      
+<p>
+  <strong>Artist name:</strong>
+  <%= @gig.artist_name %>
+</p>
+
+<p>
+  <strong>Genre:</strong>
+  <%= @gig.gig_genre %>
+</p>
+
+<p>
+  <strong>Venue:</strong>
+  <%= @gig.gig_venue %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @gig.gig_when.strftime("%m/%d/%Y") %>
+</p>
+
+<p>
+  <strong>Time:</strong>
+  <%= @gig.gig_when.strftime("%-I:%M %p") %>
+</p>
+
+<p>
+  <strong>Tickets:</strong>
+  <%= link_to @gig.gig_tickets, "http://#{@gig.gig_tickets}", :target => "_blank" %>
+
+</p>
+
+<p>
+  <strong>Additional Comments:</strong>
+  <%= @gig.gig_comments %>
+</p>
+
+<% link_to 'Edit', edit_gig_path(@gig), class:"btn btn-outline-info my-2 my-sm-0"%>
+    </blockquote>
+  </div>
+</div>
+
+<br/> 
+<%= link_to 'Back', :back, class:"btn btn-outline-info my-2 my-sm-0" %>

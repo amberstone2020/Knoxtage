@@ -1,0 +1,70 @@
+<%= form_with(model: gig) do |form| %>
+  <% if gig.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(gig.errors.count, "error") %> prohibited this gig from being saved:</h2>
+
+      <ul>
+        <% gig.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <div class="field form-group">
+    <% form.label :user_id %>
+    <%= form.number_field :user_id, 
+      id: :gig_user_id,
+      class:"form-control",
+    value: current_user.id, type: :hidden %>
+  </div>
+
+  <div class="field form-group">
+    <% form.label :artist_name %>
+    <%= form.text_field :artist_name, 
+      class:"form-control",
+    placeholder:"Artist Name" %>
+  </div>
+
+  <div class="field form-group">
+    <% form.label :gig_genre %>
+    <%= form.text_field :gig_genre,
+    class:"form-control",
+    placeholder:"Genre" 
+     %>
+  </div>
+
+  <div class="field form-group">
+    <% form.label :gig_venue %>
+    <%= form.text_field :gig_venue,
+    class:"form-control",
+    placeholder:"Venue"  %>
+  </div>
+
+  <div class="field form-group">
+    <% form.label :gig_when %>
+    <%= form.datetime_select :gig_when,
+    class:"form-control",
+    placeholder:"When" %>
+  </div>
+
+  <div class="field form-group">
+    <% form.label :gig_tickets %>
+    <%= form.text_field :gig_tickets,
+    class:"form-control",
+    placeholder:"Ticket Link"  %>
+  </div>
+
+  <div class="field form-group">
+    <% form.label :gig_comments %>
+    <%= form.text_field :gig_comments,
+    class:"form-control",
+    placeholder:"Additional Comments"  %>
+  </div>
+
+
+  <div class="actions">
+    <%= form.submit class:"btn btn-outline-info my-2 my-sm-0" %>
+  </div>
+<% end %>
+
